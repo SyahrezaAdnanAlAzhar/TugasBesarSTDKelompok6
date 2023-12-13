@@ -1,4 +1,8 @@
 #include <iostream>
+#define first(L) (L.first)
+#define next(P) ((P)->next)
+#define info(P) ((P)->info)
+#define nextFilm(Q) ((Q)->nextFilm)
 
 
 using namespace std;
