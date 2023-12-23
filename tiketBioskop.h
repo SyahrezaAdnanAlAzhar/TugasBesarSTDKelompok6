@@ -1,9 +1,13 @@
 #include <iostream>
-#define first(L) (L.first)
-#define next(P) ((P)->next)
-#define info(P) ((P)->info)
-#define nextFilm(Q) ((Q)->nextFilm)
-
+#define firstPenonton(L) (L.firstPenonton)
+#define firstFilm(L) (L.firstFilm)
+#define firstTiket(L) (L.firstTiket)
+#define nextPenonton(P) ((P)->nextPenonton)
+#define nextFilm(P) ((P)->nextFilm)
+#define nextTiket(P) ((P)->nextTiket)
+#define infoPenonton(P) ((P)->infoPenonton)
+#define infoFilm(P) ((P)->infoFilm)
+#define tiketFilm(P) ((P)->tiketFilm)
 
 using namespace std;
 
@@ -12,21 +16,21 @@ using namespace std;
 struct penonton{
     string nama;
     string email;
-    string nomorHp;
-    int jumlahTiker;
+    string noHP;
+    int jumlahTiket;
 };
 
 typedef struct elmPenonton *adrPenonton;
 
 struct elmPenonton{
-    penonton info;
-    adrPenonton next;
+    penonton infoPenonton;
+    adrPenonton nextPenonton;
     listTiket tiket;
 
 };
 
 struct listPenonton{
-    adrPenonton first;
+    adrPenonton firstPenonton;
 };
 
 //film
@@ -40,12 +44,12 @@ struct film{
 typedef struct elmFilm *adrFilm;
 
 struct elmFilm{
-    film info;
-    adrFilm next;
+    film infoFilm;
+    adrFilm nextFilm;
 };
 
 struct listFilm{
-    adrFilm first;
+    adrFilm firstFilm;
 };
 
 // Tiket
@@ -54,10 +58,18 @@ typedef struct elmTiket *adrTiket
 
 struct elmTiket{
     string noKursi;
-    adrFilm nextFilm;
-    adrTiket next;
+    adrFilm tiketFilm;
+    adrTiket nextTiket;
 };
 
 struct listTiket{
-    adrTiket first;
+    adrTiket firstTiket;
 };
+
+void createListPenonton(listPenonton &LP);
+void createListFilm(listFilm &LF);
+adrPenonton createElmPenonton(string nama, string email, string noHP);
+adrFilm createElmFilm(string nama, int menitDurasi, string jamTayang);
+void membeliTiket(string namaPenonton, string namaFilm);
+void tambahPenonton(listPenonton &LP, adrPenonton P);
+void printAllPenonton(listPenonton LP);
