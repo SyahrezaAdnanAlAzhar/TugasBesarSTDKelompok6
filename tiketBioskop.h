@@ -70,6 +70,13 @@ void createListPenonton(listPenonton &LP);
 void createListFilm(listFilm &LF);
 adrPenonton createElmPenonton(string nama, string email, string noHP);
 adrFilm createElmFilm(string nama, int menitDurasi, string jamTayang);
+adrTiket createElmTiket(string noKursi); //ini kayaknya perlu buat elemen tiket
 void membeliTiket(string namaPenonton, string namaFilm);
 void tambahPenonton(listPenonton &LP, adrPenonton P);
 void printAllPenonton(listPenonton LP);
+void printAllFilm(listFilm LF);
+adrPenonton searchPenonton(listPenonton LP, string nama);
+adrFilm searchFilm(listFilm LF, string nama);
+void tambahTiket(listPenonton &LP, listFilm LF, string noKursi, string namaPenonton, string namaFilm);
+void printInfoNonton(listPenonton LP, listFilm LF));
+void deleteTiket(listPenonton &LP, string namaFilm);
