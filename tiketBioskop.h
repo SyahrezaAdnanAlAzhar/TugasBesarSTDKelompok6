@@ -8,6 +8,7 @@
 #define infoPenonton(P) ((P)->infoPenonton)
 #define infoFilm(P) ((P)->infoFilm)
 #define tiketFilm(P) ((P)->tiketFilm)
+#define noKursi(P) ((P)->noKursi)
 
 using namespace std;
 
@@ -70,13 +71,28 @@ void createListPenonton(listPenonton &LP);
 void createListFilm(listFilm &LF);
 adrPenonton createElmPenonton(string nama, string email, string noHP);
 adrFilm createElmFilm(string nama, int menitDurasi, string jamTayang);
-adrTiket createElmTiket(string noKursi); //ini kayaknya perlu buat elemen tiket
-void membeliTiket(string namaPenonton, string namaFilm);
-void tambahPenonton(listPenonton &LP, adrPenonton P);
+adrTiket createElmTiket(string noKursi); //ini kayaknya perlu buat elemen tiket, udah ku include in di procedure membeliTiket Qi
+void membeliTiket(listPenonton &LP, listFilm LF, string namaPenonton, string namaFilm, int noKursi);
+void tambahPenonton(listPenonton &LP, adrPenonton PPenonton);
+void tambahFilm(listFilm &LF, adrFilm PFilm);
 void printAllPenonton(listPenonton LP);
 void printAllFilm(listFilm LF);
+void hapusElmPenonton(listPenonton &LP, string nama);
+void hapusElmFilm(listFilm &LF, string nama);
+void deleteFirstTiket(listPenonton &LP, adrPenonton &PPenonton);
+void deleteLastTiket(listPenonton &LP, adrPenonton &PPenonton);
+void deleteAfterTiket(listPenonton &LP, adrPenonton &PPenonton, adrTiket precTiket);
+void deleteAllTiket(listPenonton &LP, adrPenonton &PPenonton);
+void deleteTiketWithSpesificFilm(listPenonton &LP, adrFilm PFilm);
+void deleteFirstPenonton(listPenonton &LP);
+void deleteLastPenonton(listPenonton &LP);
+void deleteAfterPenonton(listPenonton &LP, adrPenonton prec);
+void deleteFirstFilm(listFilm &LF, listPenonton &LP);
+void deleteLastFilm(listFilm &LF, listPenonton &LP);
+void deleteAfterFilm(listFilm &LF, adrFilm prec, listPenonton &LP);
 adrPenonton searchPenonton(listPenonton LP, string nama);
 adrFilm searchFilm(listFilm LF, string nama);
+adrTiket searchTiket(listPenonton LP, listFilm LF, string namaPenonton, string namaFilm);
 void tambahTiket(listPenonton &LP, listFilm LF, string noKursi, string namaPenonton, string namaFilm);
 void printInfoNonton(listPenonton LP, listFilm LF));
 void deleteTiket(listPenonton &LP, string namaFilm);
