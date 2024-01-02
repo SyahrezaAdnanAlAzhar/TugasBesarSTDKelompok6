@@ -61,12 +61,6 @@ struct elmTiket{
     adrTiket nextTiket;
 };
 
-/*
-struct listTiket{
-    adrTiket firstTiket;
-};
-*/
-
 void createListPenonton(listPenonton &LP);
 void createListFilm(listFilm &LF);
 adrPenonton createElmPenonton(string nama, string email, string noHP);
