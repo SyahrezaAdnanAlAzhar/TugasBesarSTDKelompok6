@@ -71,7 +71,7 @@ void createListPenonton(listPenonton &LP);
 void createListFilm(listFilm &LF);
 adrPenonton createElmPenonton(string nama, string email, string noHP);
 adrFilm createElmFilm(string nama, int menitDurasi, string jamTayang);
-adrTiket createElmTiket(string noKursi); //ini kayaknya perlu buat elemen tiket, udah ku include in di procedure membeliTiket Qi
+adrTiket createElmTiket(string noKursi); //ini kayaknya perlu buat elemen tiket, udah ku include in di procedure membeliTiket Qi, oh gitu yaudauh :V
 void membeliTiket(listPenonton &LP, listFilm LF, string namaPenonton, string namaFilm, int noKursi);
 void tambahPenonton(listPenonton &LP, adrPenonton PPenonton);
 void tambahFilm(listFilm &LF, adrFilm PFilm);
@@ -93,6 +93,6 @@ void deleteAfterFilm(listFilm &LF, adrFilm prec, listPenonton &LP);
 adrPenonton searchPenonton(listPenonton LP, string nama);
 adrFilm searchFilm(listFilm LF, string nama);
 adrTiket searchTiket(listPenonton LP, listFilm LF, string namaPenonton, string namaFilm);
-void tambahTiket(listPenonton &LP, listFilm LF, string noKursi, string namaPenonton, string namaFilm);
-void printInfoNonton(listPenonton LP, listFilm LF));
-void deleteTiket(listPenonton &LP, string namaFilm);
+void printSpecificTiket(listPenonton LP, listFilm LF, string namaPenonton, string namaFilm);
+void printAllTiket(listPenonton LP, listFilm LF);
+int selectMenu();
