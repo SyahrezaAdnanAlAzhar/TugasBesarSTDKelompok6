@@ -341,45 +341,66 @@ adrTiket searchTiket(listPenonton LP, listFilm LF, string namaPenonton, string n
     }
 }
 
-void tambahTiket(listPenonton &LP, listFilm LF, string noKursi, string namaPenonton, string namaFilm){
-//Menambahkan tiket yang dibeli sesuai nama penonton nama film. Elemen tiket sudah didefinisikan
-    adrPenonton P = searchPenonton(LP,namaPenonton);
-    adrFilm F = searchFilm(LF,namaFilm);
-    if (P != NULL && F != NULL){
-        listTiket LT = P.tiket;
-        adrTiket T = createElmTiket(noKursi); //ini tambahin aja
-        insertLast(LT,T); //reja yang buat insert lastnya nanti ikutin reja
-        tiketFilm(T) = F;
+void printSpecificTiket(listPenonton LP, listFilm LF, string namaPenonton, string namaFilm){
+//Cetak tiket orang tertentu, ini kalo gaperlu apus aja deh
+    adrPenonton P = searchPenonton(LP, nama);
+    adrTiket T = searchTiket(LP,LF,namaPenonton,namaFilm);
+    if (P != NULL){
+        cout << "===========TIKET==========" << endl;
+        printf("Nama\t\t: ");
+        cout << infoPenonton(P).nama << endl;
+        printf("Nama Film\t: ");
+        cout << infoFilm(tiketFilm(T)).nama << endl;
+        printf("Durasi Film\t: ")
+        cout << infoFilm(tiketFilm(T)).menitDurasi << "Menit" << endl;
+        printf("Jam Tayang\t: ") << endl;
+        cout << infoFilm(tiketFilm(T)).jamTayang << endl;
+        printf("Nomor Kursi\t: ") << endl;
+        cout << noKursi(T) << endl;
+        cout << "==========================" << endl;
     }
 }
 
-void printInfoNonton(listPenonton LP, listFilm LF){
-//Mencetak semua info mulai dari penonton-tiket-film
-    adrPenonton P = firstPenonton(LP);
-    if (P != NULL){
+void printAllTiket(listPenonton LP, listFilm LF){
+//Mencetak semua info tiket
+    if (firstPenonton(LP) == NULL){
         cout << "Tidak ada penonton!" << endl;
     } else {
+        adrPenonton P = firstPenonton(LP);
+        adrTiket T = firstTiket(P);
         while (P != NULL){
-            cout << "===========TIKET==========" << endl;
-            printf("Nama\t\t: ");
-            cout << infoPenonton(P).nama << endl;
-            printf("E-mail\t\t: ");
-            cout << infoPenonton(P).email << endl;
-            printf("No.HP\t\t: ");
-            cout << infoPenonton(P).noHP << endl;
-            printf("Jumlah Tiket\t: ");
-            cout << infoPenonton(P).jumlahTiket << endl;
-            printf("Nama Film\t: ");
-            cout << infoFilm(F).nama << endl;
-            printf("Durasi Film\t: ")
-            cout << infoFilm(F).menitDurasi << "Menit" << endl;
-            printf("Jam Tayang\t: ") << endl;
-            cout << infoFilm(F).jamTayang << endl;
+            while (T != NULL){
+                cout << "===========TIKET==========" << endl;
+                printf("Nama\t\t: ");
+                cout << infoPenonton(P).nama << endl;
+                printf("Nama Film\t: ");
+                cout << infoFilm(tiketFilm(T)).nama << endl;
+                printf("Durasi Film\t: ")
+                cout << infoFilm(tiketFilm(T)).menitDurasi << "Menit" << endl;
+                printf("Jam Tayang\t: ") << endl;
+                cout << infoFilm(tiketFilm(T)).jamTayang << endl;
+                printf("Nomor Kursi\t: ") << endl;
+                cout << noKursi(T) << endl;
+                cout << "==========================" << endl;
+                T = nextTiket(T);
+            }
             P = nextPenonton(P);
         }
     }
 }
 
-void deleteTiket(listPenonton &LP, string namaFilm){
-
+int selectMenu(){
+    int input = 0;
+    cout << "=-=-=-=-=-= M E N U =-=-=-=-=-=" << endl;
+    cout << "1. Membeli Tiket" << endl;
+    cout << "2. Batalkan pesanan" << endl;
+    cout << "3. Check Tiket" << endl;
+    cout << "4. Check Daftar Film" << endl;
+    cout << "5. Check Daftar Penonton" << endl;
+    cout << "0. Keluar" << endl;
+    cout << "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=" << endl;
+    cout << "Masukkan Pilihanmu: ";
+    cin >> input:
+    cout << endl;
+    return input;
 }
